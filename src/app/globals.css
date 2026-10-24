@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --basil: #1f4d2b;      /* ใบกะเพรา */
+  --basil-deep: #143220;
+  --basil-soft: #e4ece3;
+  --chili: #d4202c;      /* พริกขี้หนู */
+  --yolk: #f4b400;       /* ไข่แดง */
+  --rice: #f6f7f2;       /* ข้าวสวย */
+  --ink: #1c1f1a;
+  --muted: #5d6658;
+  --line: #d8ddd2;
+  --font-sign: "Chonburi", serif;
+  --font-body: "IBM Plex Sans Thai", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-basil: var(--basil);
+  --color-basil-deep: var(--basil-deep);
+  --color-basil-soft: var(--basil-soft);
+  --color-chili: var(--chili);
+  --color-yolk: var(--yolk);
+  --color-rice: var(--rice);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-sign);
+}
+
+html {
+  background: var(--rice);
+}
+
+body {
+  background: var(--rice);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 3px solid var(--yolk);
+  outline-offset: 2px;
+}
+
+/* เส้นจุดระหว่างชื่อเมนูกับราคา แบบป้ายเมนูร้านอาหาร */
+.leader {
+  flex: 1;
+  border-bottom: 2px dotted var(--line);
+  transform: translateY(-0.35em);
+  min-width: 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .flame {
+    animation: flicker 1.8s ease-in-out infinite;
+    transform-origin: 50% 100%;
+  }
+  @keyframes flicker {
+    0%, 100% { transform: scaleY(1) rotate(-1deg); }
+    50% { transform: scaleY(1.08) rotate(1.5deg); }
+  }
+}
